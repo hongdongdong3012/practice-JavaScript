@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>a : 평타</li>
+    <li>s : 발차기</li>
+    <li>d : 욕하기</li>
+    <li>f : 도망치기</li>
+    <li>ctrl + z : 필살기!!</li>
+  </ul>
+  <h2 class="skiiName">내가 쓴 기술 : </h2>
+
+  <script>
+    const skills = document.querySelector('.skiiName');
+    function specialMoves(e) {
+      if(e.keyCode === 65) {
+        skills.textContent = '내가 쓴 기술 : 평타'
+      }else if(e.keyCode === 83){
+        skills.textContent = '내가 쓴 기술 : 발차기'
+      }else if(e.keyCode === 68){
+        skills.textContent = '내가 쓴 기술 : 욕하기'
+      }else if(e.keyCode === 70){
+        skills.textContent = '내가 쓴 기술 : 도망치기'
+      }
+    }
+
+    function skill(e){
+      console.log(e.keyCode);
+      if(e.ctrlKey === true && e.keyCode === 90) {
+        skills.textContent = '내가 쓴 기술 : 필살기!!'
+      }
+      
+    }
+
+    document.addEventListener('keydown', skill);
+    document.addEventListener('keyup', specialMoves);
+  </script>
+</body>
+</html>
