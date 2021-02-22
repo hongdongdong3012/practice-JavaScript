@@ -1,1 +1,6 @@
-"# practice-JavaScript" 
+"# practice-JavaScript"
+
+혼자서 아무 생각없이 만들어보는 자바스크립트!
+드디어 코드를 보지 않고 하나 두개씩 만들 수 있게 되었다~
+
+너무 행복하다 ㅠㅠ
