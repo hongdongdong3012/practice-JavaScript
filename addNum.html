@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  p {font-size:30px;}
+</style>
+<body>
+  <p>클릭 횟수 : <span class="numBtn">0</span></p>
+  <button class="add">이벤트 연결</button>
+  <button class="remove">이벤트 제거</button>
+  <p>이벤트 연결상태 : <span class="state">해제</span></p>
+
+  <script>
+    const clickNum = document.querySelector('.numBtn');
+    const addEvent = document.querySelector('.add');
+    const removeEvent = document.querySelector('.remove');
+    const state = document.querySelector('.state');
+    let count = 0;
+
+    addEvent.addEventListener('click', addEt);
+    removeEvent.addEventListener('click', removeEt);
+    
+    function addNum (e) {
+      clickNum.textContent = parseInt(count += 1)
+    }
+
+    function addEt () {
+      clickNum.addEventListener('click', addNum);
+      state.textContent = '연결'
+    }
+
+    function removeEt () {
+      clickNum.removeEventListener('click', addNum);
+      state.textContent = '해제'
+    }
+
+
+
+  </script>
+
+
+
+</body>
+</html>
