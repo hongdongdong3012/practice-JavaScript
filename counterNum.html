@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>counter Number</title>
+</head>
+<body>
+  <h2 class="counter">글자 수 : 0</h2>
+  <textarea class="textBox" name="" id="" cols="100" rows="20"></textarea>
+
+
+  <script>
+    const counter = document.querySelector('.counter');
+    const textBox = document.querySelector('.textBox');
+
+    textBox.addEventListener('keyup', (e) => {
+      let length = textBox.value.length;
+      if(e.keyCode == 13) {
+        console.log('Enter');
+      }
+
+      counter.textContent = `글자 수 : ${length}`      
+      
+    });
+
+  </script>
+</body>
+</html>
