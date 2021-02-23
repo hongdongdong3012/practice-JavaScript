@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>h1 {font-size:100px;}</style>
+    <p>현재 사용된 키는 : <span></span></p>
+    <h1>*</h1>
+
+    <script>
+        const star = document.querySelector('h1');
+        const useKey = document.querySelector('span');
+        star.style.position = 'absolute'
+        //별의 이동
+        let [x, y] = [0, 0]
+        const block = 20
+        const print = () => {
+            star.style.left= `${x * block}px`
+            star.style.top= `${y * block}px`
+        }
+        
+        //별을 이동하는 기능
+        const [left, up, right, down] = [37, 38, 39, 40]
+        document.addEventListener('keydown', moveStar);
+        function moveStar(e) {
+            if(e.keyCode === 37) {
+                useKey.textContent = '←';
+            }else if(e.keyCode === 38) {
+                useKey.textContent = '↑';
+            }else if(e.keyCode === 39) {
+                useKey.textContent = '→';
+            }else if(e.keyCode === 40) {
+                useKey.textContent = '↓';
+            }
+
+            switch (e.keyCode) {
+                case left:
+                    x -= 1
+                    break
+                case up:
+                    y -= 1
+                    break                    
+                case right:
+                    x += 1
+                    break
+                case down:
+                    y += 1
+                    break
+            }
+            print()
+        }
+
+    </script>
+</body>
+</html>
