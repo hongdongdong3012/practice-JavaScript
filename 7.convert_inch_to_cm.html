@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+    </style>
+
+    <div>
+        <input type="text"> inch <br>
+        <button>계산</button>
+        <p></p>
+    </div>
+
+
+    <script>
+        const inc = document.querySelector('input');
+        const btn = document.querySelector('button')
+        const p = document.querySelector('p')
+
+        btn.addEventListener('click', change);
+        
+        function change(e) {
+            let incValue = Number(inc.value);
+            const inch = incValue * 2.54;
+
+            if(isNaN(incValue)) {
+                p.textContent = '숫자를 입력해주세요.'
+            }else {
+                p.textContent = `${inch}`
+            }
+        }
+
+
+    </script>
+
+
+</body>
+</html>
