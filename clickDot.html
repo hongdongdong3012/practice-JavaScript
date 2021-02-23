@@ -12,29 +12,34 @@
 </head>
 <body>
   <div id="wrap">
+    <p class="state"></p>
     <div class="contents">
-      
+      <div class="box"></div>
     </div>
 
     <script>
       const wrap = document.querySelector('.contents');
       const box = document.querySelector('.box');
-      const tag = `<div class="box"></div>`
+      const state = document.querySelector('.state');
+      const tag = ``
 
-      wrap.addEventListener('click', addDot)
       wrap.addEventListener('mousemove', move)
-
-      function addDot (event) {
-        wrap.innerHTML = tag;
-        box.style.left = cX + 'px';
-        box.style.top = cY + 'px';
-      }
-
+      
       function move (e) {
         let cX = e.clientX;
         let cY = e.clientY;
-        return cX, cY
+        state.textContent = `cX : ${cX}, cY : ${cY}`;
+        box.style.left = cX + 'px';
+        box.style.top = cY + 'px';
+        if (wrap.addEventListener('click', addDot))
+        return cX; 
+        
       }
+
+      function addDot (event) {
+        console.log(cX);
+      }
+
     </script>
   </div>
 </body>

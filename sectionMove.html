@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {width:100%; height:100vh; }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+        <section></section>
+    </div>
+
+    
+
+    <script>
+        const section = document.querySelectorAll('section');
+
+        section.forEach((item, index) => {
+            const bgColor = ['#bdc7ff','#999999','#5dff72','#fffafd','#ff8c3f']
+            item.style.backgroundColor = bgColor[index];
+
+            const secTop = item.offsetTop;
+            return secTop
+            
+        })
+        console.log(secTop);
+
+        function scrollMove(e) {
+            let clientTop = window.scrollY;
+
+            console.dir(clientTop)
+            console.log(clientTop);
+        }
+
+        document.addEventListener('scroll', scrollMove);
+    </script>
+</body>
+</html>
