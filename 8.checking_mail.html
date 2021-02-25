@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="이메일을 입력하세요.">
+    <span class="txt"></span>
+    <span class="checking"></span>
+
+    <script>
+
+        const input = document.querySelector('input');
+        const p = document.querySelector('.txt');
+        const check = document.querySelector('.checking');
+        const isEmail  = (e) => {
+            
+        };
+
+        input.addEventListener('keyup', txtShow);
+        input.addEventListener('keyup', checking);
+
+        function txtShow (e) {
+            const value = e.currentTarget.value;
+
+            p.textContent = value
+            
+        }
+
+        // value를 어떻게 가져올 수 있을까?
+        function checking (e) {
+            console.log(value);
+        }
+
+    </script>
+</body>
+</html>

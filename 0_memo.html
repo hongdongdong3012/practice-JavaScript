@@ -7,27 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <style>
-
-    </style>
-
-    <div>
-        <input type="text">
-        <p></p>
-    </div>
-
-
+    <ul id="parent-list">
+        <li id="1">Item 1</li>
+        <li id="2">Item 2</li>
+        <li id="3">Item 3</li>
+        <li id="4">Item 4</li>
+        <li id="5">Item 5</li>
+        <li id="6">Item 6</li>
+    </ul>
+    
     <script>
-
-        const i = document.querySelector('input');
-        const p = document.querySelector('p');
-
-        i.addEventListener('keydown', (e)=> {
-            const text = i.value;
-            console.log(this)
-            p.textContent = text
-        })
-
+        const li = document.querySelector('li')
+        console.dir(li)
+    document.getElementById("parent-list").addEventListener("click", (e) => {
+        if(e.target && e.target.nodeName == "LI") {
+            console.log(e.target.id);
+        }
+    });
     </script>
 
 
