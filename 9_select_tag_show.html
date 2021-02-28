@@ -7,25 +7,49 @@
     <title>Document</title>
 </head>
 <body>
-  <select name="" id="">
+  <h3>select</h3>
+  <select class='select1'>
     <option value="">떡볶이</option>
     <option value="">순대</option>
     <option value="">오뎅</option>
     <option value="">튀김</option>
   </select>
-    <p>선택 : 떡볶이</p>
+    <p class="view1">선택 : 떡볶이</p>
+
+
+    <h3>multiple select</h3>
+    <select class="select2" multiple>
+      <option value="">떡볶이</option>
+      <option value="">순대</option>
+      <option value="">오뎅</option>
+      <option value="">튀김</option>
+    </select>
+      <p class="view2">선택 : 떡볶이</p>    
+
     <script>
-      const select = document.querySelector('select')
-      const p = document.querySelector('p')
+      //첫번째 select
+      const select1 = document.querySelector('.select1')
+      const p1 = document.querySelector('.view1')
 
-      select.addEventListener('change', (e) => {
-        const options = e.currentTarget.options
-        const index = e.currentTarget.options.selectedIndex
-        console.dir(options[index].textContent)
+      select1.addEventListener('change', (e) => {
+        const options1 = e.currentTarget.options
+        const index1 = e.currentTarget.options.selectedIndex
 
-        p.textContent = `선택 : ${options[index].textContent}`
+        p1.textContent = `선택 : ${options1[index1].textContent}`
       })
 
+      //두번째 select
+      const select2 = document.querySelector('.select2')
+      const p2 = document.querySelector('.view2')
+
+      select2.addEventListener('change', (e) => {
+        const options2 = e.currentTarget.options
+        const list = []
+        for(const option of options2) {
+          list.push(option.textContent)
+        }
+        p2.textContent = `선택 : ${list.join(',')}`
+      })
     </script>
 
 
