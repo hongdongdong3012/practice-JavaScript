@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        * {box-sizing:border-box;}
+        .container {width:800px; margin:0 auto; text-align: center;}
+        .row {display:flex; align-items: center; margin-bottom:20px;}
+        input[type='text'] {width:80%; padding:4px; height:40px; border:1px solid #999;}
+        button {width:20%; padding:4px; height:40px; border:1px solid #999; background:inherit;}
+        .list {display:flex; align-items: center;  justify-content: space-between;}
+        .list input[type='checkbox'] {}
+        .list span {display:inline-block; width:80%; font-size:18px;}
+        .list button {}
+
+        @media (max-width:768px) {
+            .container {width: 100%; padding:10px;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="container">
+            <h3>Todo List</h3>
+            <div class="row">
+                <input id="todo" type="text" placeholder="입력">
+                <button id="add-button">입력</button>
+            </div>
+            <div id="todo-list">
+
+            </div>
+
+        </div>
+    </div>
+            
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        //선언
+        const input = document.querySelector('input')
+        const addButton = document.querySelector('#add-button')
+        const todoList = document.querySelector('#todo-list')
+
+        let keyCount = 0
+
+        //입력함수
+        const addList = (e) => {
+            
+            if(input.value.trim() === '') {
+                alert('입력해주세요.');
+                return
+            }
+
+            // list 만들기
+            const item = document.createElement('div')
+            const checkbox = document.createElement('input')
+            const text = document.createElement('span')
+            const button = document.createElement('button')
+            item.classList.add('list')
+
+            const key = keyCount
+            keyCount += 1
+
+            item.setAttribute('data-key', key)
+            item.appendChild(checkbox)
+            item.appendChild(text)
+            item.appendChild(button)
+            todoList.appendChild(item)
+
+
+            //checkbox 변경하기
+            checkbox.type = 'checkbox'
+            checkbox.addEventListener('change', (event) => {
+                item.style.textDecoration 
+                = event.target.checked? 'line-through' : ''
+            })
+
+            //text에 텍스트 넣기
+            text.textContent = input.value
+
+            //button 변경하기 및 지우기 function
+            button.textContent = '제거하기'
+            
+            button.addEventListener('click', () => {
+                removeTodo(key)
+            })
+
+
+            //text value 값 지우기
+            input.value = ''
+
+        }
+        //지우기
+        const removeTodo = (key) => {
+            const item = document.querySelector(`[data-key="${key}"]`)
+            todoList.removeChild(item)
+        }
+
+        //입력하기
+        addButton.addEventListener('click', addList);
+        input.addEventListener('keyup', (e) => {
+            if(e.keyCode === 13) {
+                addList();
+            }
+        })
+    })
+
+    </script>
+
+
+</body>
+</html>
