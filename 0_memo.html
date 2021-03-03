@@ -7,23 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <ul id="parent-list">
-        <li id="1">Item 1</li>
-        <li id="2">Item 2</li>
-        <li id="3">Item 3</li>
-        <li id="4">Item 4</li>
-        <li id="5">Item 5</li>
-        <li id="6">Item 6</li>
-    </ul>
+    
     
     <script>
-        const li = document.querySelector('li')
-        console.dir(li)
-    document.getElementById("parent-list").addEventListener("click", (e) => {
-        if(e.target && e.target.nodeName == "LI") {
-            console.log(e.target.id);
-        }
-    });
+        const students  = []
+        students.push({이름 : '구름', 국어 : 87, 영어 : 98, 수학 : 88, 과학 : 90 })
+        students.push({이름 : '별이', 국어 : 87, 영어 : 88, 수학 : 80, 과학 : 48 })
+        students.push({이름 : '겨울', 국어 : 76, 영어 : 98, 수학 : 76, 과학 : 59 })
+        students.push({이름 : '바다', 국어 : 98, 영어 : 52, 수학 : 98, 과학 : 86 })
+
+        alert(JSON.stringify(students, null, 2))
     </script>
 
 
