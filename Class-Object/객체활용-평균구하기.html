@@ -18,23 +18,21 @@
 
         
         //객체를 처리하는 함수를 선언합니다
-        function getSumOf (student) {
-            return student.국어 + student.영어 + student.수학 + student.과학
-        }
+        for (const student of students) {
+            student.getSum = function() {
+                return this.국어 + this.영어 + this.수학 + this.과학
+            }
 
-        function getAverageOf (student) {
-            return getSumOf(student) / 4
+            student.getAverage = function() {
+                return this.getSum() / 4
+            }
         }
-
 
         // 출력합니다.
         let output = '이름\t총점\t평균\n'
         for (const s of students) {
-            output += `${s.이름}\t${getSumOf(s)}점\t${getAverageOf(s)}\n`
+            output += `${s.이름}\t${s.getSum()}점\t${s.getAverage()}\n`
         }
-        
-        
-        
         
         
         console.log(output)
