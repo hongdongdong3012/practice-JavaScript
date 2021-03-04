@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="input">
+    <button class="addBtn">추가</button>
+    <ul class="list-group">
+
+    </ul>
+    <script>
+        const txtInput = document.querySelector('.input')
+        const addBtn = document.querySelector('.addBtn')
+        const listGroup = document.querySelector('.list-group')
+
+
+        const addList = (e) => {
+            
+            const list = document.createElement('li')
+            const input = document.createElement('input')
+            const p = document.createElement('p')
+            const deleteBtn = document.createElement('button')
+            
+            input.type = 'radio'
+            const txt = txtInput.value
+            p.textContent = txt
+            deleteBtn.textContent = '삭제'
+            listGroup.appendChild(list)
+            list.appendChild(input)
+            list.appendChild(p)
+            list.appendChild(deleteBtn)
+        }
+
+        addBtn.addEventListener('click', addList)
+    </script>
+
+
+</body>
+</html>
