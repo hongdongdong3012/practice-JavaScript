@@ -5,13 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        ul,li {list-style: none;}
+        li {padding:10px 0;}
+        p {display:inline-block; margin:0 10px;}
+        #wrap {}
+        .container {width:600px; margin:0 auto; }
+    </style>
 </head>
 <body>
-    <input type="text" class="input">
-    <button class="addBtn">추가</button>
-    <ul class="list-group">
+    <div id="wrap">
+        <div class="container">
+            <input type="text" class="input">
+            <button class="addBtn">추가</button>
+            <ul class="list-group">
 
-    </ul>
+            </ul>
+        </div>
+    </div>
     <script>
         const txtInput = document.querySelector('.input')
         const addBtn = document.querySelector('.addBtn')
@@ -25,15 +36,26 @@
             const p = document.createElement('p')
             const deleteBtn = document.createElement('button')
             
-            input.type = 'radio'
+            input.type = 'checkbox'
             const txt = txtInput.value
             p.textContent = txt
+
+
             deleteBtn.textContent = '삭제'
             listGroup.appendChild(list)
             list.appendChild(input)
             list.appendChild(p)
             list.appendChild(deleteBtn)
+
+
+
+
+
+            deleteBtn.addEventListener('click', () => {
+                listGroup.removeChild(list)
+            })
         }
+
 
         addBtn.addEventListener('click', addList)
     </script>
